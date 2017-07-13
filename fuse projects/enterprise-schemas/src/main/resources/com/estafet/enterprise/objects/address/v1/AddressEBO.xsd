@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+** estafet  **
+** Canonical Model **
+** Version 1.0 **
+** Author James Glass	
+** Date: 20 May 2015  ** 
+-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+			xmlns="http://www.estafet.com/enterprise/objects/address/v1" 
+			targetNamespace="http://www.estafet.com/enterprise/objects/address/v1" 
+			elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xsd:element name="Address" type="AddressType">
+		<xsd:annotation>
+			<xsd:documentation>Main postal and electronic Address info</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="AddressType">
+		<xsd:sequence>
+			<xsd:element name="AddressPostal" type="AddressPostalType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="AddressElectronic" type="AddressElectronicType" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AddressPostalType">
+		<xsd:sequence>
+			<xsd:element name="AddressLine1" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="AddressLine2" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="AddressLine3" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="AddressLine4" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="AddressLine5" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="AddressLine6" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="AddressLine7" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="AddressLine8" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Company" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Building" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="SubBuilding" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Department" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Premise" type="ComponentType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Street" type="ComponentType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="SubStreet" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="POBox" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="City" type="ComponentType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="SubCity" type="ComponentType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Principality" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Region" type="ComponentType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Postcode" type="ComponentType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="DPS" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Cedex" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Country" type="ComponentType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="CountryISO" type="CountryISOType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Latitude" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Longitude" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="ProviderName" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="ProviderType" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:group ref="QualityGroup"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ComponentType">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="status" type="xsd:string"/>
+				<xsd:attribute name="level" type="xsd:string"/>
+				<xsd:attribute name="desc" type="xsd:string"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="CountryISOType">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="iso3" type="xsd:string"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:group name="QualityGroup">
+		<xsd:sequence>
+			<xsd:element name="Quality" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Match" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="SupplierQuality" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:group>
+	<xsd:complexType name="AddressElectronicType">
+		<xsd:sequence>
+			<xsd:element name="Value" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Type" type="StyleType" minOccurs="0" maxOccurs="1"/>
+			<xsd:group ref="QualityGroup"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="StyleType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="email"/>
+			<xsd:enumeration value="url"/>
+			<xsd:enumeration value="ip"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="KeyType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="UserType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="3"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="COptimaOptionSet">
+		<xsd:sequence>
+			<xsd:element name="OptionsMain" type="ArrayOfCOptimaOption" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="OptionsMask" type="ArrayOfCOptimaOptionMasks" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="OptionsOther" type="ArrayOfCOptimaOptionOther" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ArrayOfCOptimaOption">
+		<xsd:sequence>
+			<xsd:element name="COptimaOption" type="COptimaOption" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="COptimaOption">
+		<xsd:sequence>
+			<xsd:element name="OptionName" type="OON" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="OptionValue" type="xsd:int" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="OON">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="SalutationLanguage"/>
+			<xsd:enumeration value="CountryLanguage"/>
+			<xsd:enumeration value="OverrideSalutationLanguage"/>
+			<xsd:enumeration value="NameCasing"/>
+			<xsd:enumeration value="AddressCasing"/>
+			<xsd:enumeration value="TelephoneCasing"/>
+			<xsd:enumeration value="NameWordCheck"/>
+			<xsd:enumeration value="AddressWordCheck"/>
+			<xsd:enumeration value="TelephoneWordCheck"/>
+			<xsd:enumeration value="ForceUpdate1"/>
+			<xsd:enumeration value="ForceUpdate2"/>
+			<xsd:enumeration value="ForceUpdate3"/>
+			<xsd:enumeration value="Deprecated1"/>
+			<xsd:enumeration value="NameFlagBadWord"/>
+			<xsd:enumeration value="AddressFlagBadWord"/>
+			<xsd:enumeration value="TelephoneFlagBadWord"/>
+			<xsd:enumeration value="Deprecated2"/>
+			<xsd:enumeration value="CautiousUpdate"/>
+			<xsd:enumeration value="EnforceBlanks"/>
+			<xsd:enumeration value="DedupeCommonErrors"/>
+			<xsd:enumeration value="FormatComponents1"/>
+			<xsd:enumeration value="FormatComponents2"/>
+			<xsd:enumeration value="FormatComponents3"/>
+			<xsd:enumeration value="StandardiseComponents1"/>
+			<xsd:enumeration value="StandardiseComponents2"/>
+			<xsd:enumeration value="StandardiseComponents3"/>
+			<xsd:enumeration value="ValidateComponents1"/>
+			<xsd:enumeration value="ValidateComponents2"/>
+			<xsd:enumeration value="ValidateComponents3"/>
+			<xsd:enumeration value="CompanyWeight"/>
+			<xsd:enumeration value="StreetWeight"/>
+			<xsd:enumeration value="CityWeight"/>
+			<xsd:enumeration value="PostcodeWeight"/>
+			<xsd:enumeration value="ShuffleLines"/>
+			<xsd:enumeration value="ConcatenationLines"/>
+			<xsd:enumeration value="OuterMatchscoreLines"/>
+			<xsd:enumeration value="CarryStandardisationChanges"/>
+			<xsd:enumeration value="ApplyReferenceAccents"/>
+			<xsd:enumeration value="ReturnUserData"/>
+			<xsd:enumeration value="SearchTimeout"/>
+			<xsd:enumeration value="ReplaceAlias1"/>
+			<xsd:enumeration value="ReplaceAlias2"/>
+			<xsd:enumeration value="ReplaceAlias3"/>
+			<xsd:enumeration value="ValidatedDataOnly"/>
+			<xsd:enumeration value="StandardisationDebugOutput"/>
+			<xsd:enumeration value="FormatSearchResults"/>
+			<xsd:enumeration value="CompareField1"/>
+			<xsd:enumeration value="CompareField2"/>
+			<xsd:enumeration value="CompareField3"/>
+			<xsd:enumeration value="AlwaysShow1"/>
+			<xsd:enumeration value="AlwaysShow2"/>
+			<xsd:enumeration value="AlwaysShow3"/>
+			<xsd:enumeration value="StandardiseComponents"/>
+			<xsd:enumeration value="RemoveNumerics"/>
+			<xsd:enumeration value="GeocodeSearchResults"/>
+			<xsd:enumeration value="Transliteration"/>
+			<xsd:enumeration value="StrictSelect"/>
+			<xsd:enumeration value="PhoneticAliasMatch"/>
+			<xsd:enumeration value="IgnoreEOLs"/>
+			<xsd:enumeration value="ReturnPremiseRanges"/>
+			<xsd:enumeration value="ConcatenateValidationRules"/>
+			<xsd:enumeration value="AddressValidationRuleOFT"/>
+			<xsd:enumeration value="EnhanceValidationRuleOFT"/>
+			<xsd:enumeration value="ExhaustiveValidation"/>
+			<xsd:enumeration value="ExhaustiveEnhancement"/>
+			<xsd:enumeration value="ExhaustiveSearchAddress"/>
+			<xsd:enumeration value="BusinessFlagSearchResults"/>
+			<xsd:enumeration value="EnhancedDataOnly"/>
+			<xsd:enumeration value="NumOptionsPlusOne"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="ArrayOfCOptimaOptionMasks">
+		<xsd:sequence>
+			<xsd:element name="COptimaOptionMasks" type="COptimaOptionMasks" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="COptimaOptionMasks">
+		<xsd:sequence>
+			<xsd:element name="OptionName" type="OON" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="FieldName" type="OFT" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="OptionValue" type="xsd:boolean" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="OFT">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="RecordID"/>
+			<xsd:enumeration value="Title"/>
+			<xsd:enumeration value="FirstName"/>
+			<xsd:enumeration value="MiddleInitials"/>
+			<xsd:enumeration value="LastName"/>
+			<xsd:enumeration value="FullName"/>
+			<xsd:enumeration value="NameSuffix"/>
+			<xsd:enumeration value="Gender"/>
+			<xsd:enumeration value="JobTitle"/>
+			<xsd:enumeration value="Salutation"/>
+			<xsd:enumeration value="Department"/>
+			<xsd:enumeration value="Company"/>
+			<xsd:enumeration value="Building"/>
+			<xsd:enumeration value="SubBuilding"/>
+			<xsd:enumeration value="Premise"/>
+			<xsd:enumeration value="Street"/>
+			<xsd:enumeration value="SubStreet"/>
+			<xsd:enumeration value="POBox"/>
+			<xsd:enumeration value="SubCity"/>
+			<xsd:enumeration value="City"/>
+			<xsd:enumeration value="Region"/>
+			<xsd:enumeration value="Principality"/>
+			<xsd:enumeration value="Postcode"/>
+			<xsd:enumeration value="Country"/>
+			<xsd:enumeration value="DPS"/>
+			<xsd:enumeration value="Cedex"/>
+			<xsd:enumeration value="MKN"/>
+			<xsd:enumeration value="MKA"/>
+			<xsd:enumeration value="MKC"/>
+			<xsd:enumeration value="ACR"/>
+			<xsd:enumeration value="WCR"/>
+			<xsd:enumeration value="NCR"/>
+			<xsd:enumeration value="TCR"/>
+			<xsd:enumeration value="ECR"/>
+			<xsd:enumeration value="Percent"/>
+			<xsd:enumeration value="Duplicate"/>
+			<xsd:enumeration value="DUPmaster"/>
+			<xsd:enumeration value="DUPconfidence"/>
+			<xsd:enumeration value="Other1"/>
+			<xsd:enumeration value="Other2"/>
+			<xsd:enumeration value="Other3"/>
+			<xsd:enumeration value="Other4"/>
+			<xsd:enumeration value="Other5"/>
+			<xsd:enumeration value="Other6"/>
+			<xsd:enumeration value="Other7"/>
+			<xsd:enumeration value="Other8"/>
+			<xsd:enumeration value="Other9"/>
+			<xsd:enumeration value="Other10"/>
+			<xsd:enumeration value="AddressLine1"/>
+			<xsd:enumeration value="AddressLine2"/>
+			<xsd:enumeration value="AddressLine3"/>
+			<xsd:enumeration value="AddressLine4"/>
+			<xsd:enumeration value="AddressLine5"/>
+			<xsd:enumeration value="AddressLine6"/>
+			<xsd:enumeration value="AddressLine7"/>
+			<xsd:enumeration value="AddressLine8"/>
+			<xsd:enumeration value="CountryISO"/>
+			<xsd:enumeration value="MobileTelephone"/>
+			<xsd:enumeration value="Telephone1"/>
+			<xsd:enumeration value="Telephone2"/>
+			<xsd:enumeration value="Telephone3"/>
+			<xsd:enumeration value="Telephone4"/>
+			<xsd:enumeration value="Email1"/>
+			<xsd:enumeration value="Email2"/>
+			<xsd:enumeration value="URL1"/>
+			<xsd:enumeration value="URL2"/>
+			<xsd:enumeration value="NumFieldsPlusOne"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="ArrayOfCOptimaOptionOther">
+		<xsd:sequence>
+			<xsd:element name="COptimaOptionOther" type="COptimaOptionOther" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="COptimaOptionOther">
+		<xsd:sequence>
+			<xsd:element name="OptionName" type="OtherOptions" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="OptionValue" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="OtherOptions">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="DefaultCountry"/>
+			<xsd:enumeration value="FormatSelectResults"/>
+			<xsd:enumeration value="GeocodeSelectResults"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="ExcludeType">
+		<xsd:sequence>
+			<xsd:element name="Exclude" type="OFT" nillable="true" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

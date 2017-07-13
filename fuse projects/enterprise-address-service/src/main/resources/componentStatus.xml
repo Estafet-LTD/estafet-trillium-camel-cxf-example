@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<componentStatus>
+  <description>
+    Trillium ACR - Chars 3-16 - Component Status values
+  </description>
+    <status>
+      <code>A0</code>
+      <desc>Error in Sub City</desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>A1</code>
+      <desc>Sub City has been corrected</desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>A2</code>
+      <desc>Error in Sub City</desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>A3</code>
+      <desc>Sub City has been corrected</desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>A4</code>
+      <desc>Sub City Correct</desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>A5</code>
+      <desc>Sub City has been corrected</desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>A6</code>
+      <desc>Sub City has been corrected</desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>A7</code>
+      <desc></desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>A8</code>
+      <desc></desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>A9</code>
+      <desc>Error in Sub City</desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>C0</code>
+      <desc>Error in Country</desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>C1</code>
+      <desc>Country has been corrected</desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>C2</code>
+      <desc>Error in Country</desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>C3</code>
+      <desc>Country has been corrected</desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>C4</code>
+      <desc>Country Correct</desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>C5</code>
+      <desc>Country has been corrected</desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>C6</code>
+      <desc>Country has been corrected</desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>C7</code>
+      <desc></desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>C8</code>
+      <desc></desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>C9</code>
+      <desc>Error in Country</desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>P0</code>
+      <desc>Error in Premise</desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>P1</code>
+      <desc>Premise has been corrected</desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>P2</code>
+      <desc>Error in Premise</desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>P3</code>
+      <desc>Premise has been corrected</desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>P4</code>
+      <desc>Premise Correct</desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>P5</code>
+      <desc>Premise has been corrected</desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>P6</code>
+      <desc>Premise has been corrected</desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>P7</code>
+      <desc></desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>P8</code>
+      <desc></desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>P9</code>
+      <desc>Error in Premise</desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>R0</code>
+      <desc>Error in Region/State</desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>R1</code>
+      <desc>Region/State has been corrected</desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>R2</code>
+      <desc>Error in Region/State</desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>R3</code>
+      <desc>Region/State has been corrected</desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>R4</code>
+      <desc>Region/State Correct</desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>R5</code>
+      <desc>Region/State has been corrected</desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>R6</code>
+      <desc>Region/State has been corrected</desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>R7</code>
+      <desc></desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>R8</code>
+      <desc></desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>R9</code>
+      <desc>Error in Region/State</desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>S0</code>
+      <desc>Error in Street</desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>S1</code>
+      <desc>Street has been corrected</desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>S2</code>
+      <desc>Error in Street</desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>S3</code>
+      <desc>Street has been corrected</desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>S4</code>
+      <desc>Street Correct</desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>S5</code>
+      <desc>Street has been corrected</desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>S6</code>
+      <desc>Street has been corrected</desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>S7</code>
+      <desc></desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>S8</code>
+      <desc></desc><level>1</level>
+    </status>
+    <status>
+      <code>S9</code>
+      <desc>Error in Street</desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>T0</code>
+      <desc>Error in City</desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>T1</code>
+      <desc>City has been corrected</desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>T2</code>
+      <desc>Error in City</desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>T3</code>
+      <desc>City has been corrected</desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>T4</code>
+      <desc>City Correct</desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>T5</code>
+      <desc>City has been corrected</desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>T6</code>
+      <desc>City has been corrected</desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>T7</code>
+      <desc></desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>T8</code>
+      <desc></desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>T9</code>
+      <desc>Error in City</desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>Z0</code>
+      <desc>Error in Post /Zip Code</desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>Z1</code>
+      <desc>Post /Zip Code has been corrected</desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>Z2</code>
+      <desc>Error in Post /Zip Code</desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>Z3</code>
+      <desc>Post /Zip Code has been corrected</desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>Z4</code>
+      <desc>Post /Zip Code Correct</desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>Z5</code>
+      <desc>Post /Zip Code has been corrected</desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>Z6</code>
+      <desc>Post /Zip Code has been corrected</desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>Z7</code>
+      <desc></desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>Z8</code>
+      <desc></desc>
+      <level>1</level>
+    </status>
+    <status>
+      <code>Z9</code>
+      <desc>Error in Post /Zip Code</desc>
+      <level>1</level>
+    </status>
+
+</componentStatus>

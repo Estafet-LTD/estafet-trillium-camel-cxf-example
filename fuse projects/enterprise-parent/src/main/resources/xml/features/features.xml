@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<features name="com.estafet.fuse.reference.feature.repository">
+   <feature name="com.estafet.enterprise.services.address" version="3.3.2.GA">
+     <bundle>mvn:com.estafet.fuse.reference/enterprise-schemas/1.0.0-SNAPSHOT</bundle>
+     <bundle>mvn:com.estafet/enterprise-address/1.0.0-SNAPSHOT</bundle>
+     <feature>camel-core</feature>
+     <feature>camel-blue-print</feature>
+     <feature>camel-cxf</feature>
+     				
+  </feature>
+</features>

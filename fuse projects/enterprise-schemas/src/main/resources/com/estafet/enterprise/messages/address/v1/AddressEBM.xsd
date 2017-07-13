@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+** estafet  **
+** Canonical Model **
+** Version 1.0 **
+** Author James Glass	
+** Date: 20 May 2015  ** 
+-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+			xmlns="http://www.estafet.com/enterprise/messages/address/v1" 
+			targetNamespace="http://www.estafet.com/enterprise/messages/address/v1"
+			xmlns:ebo="http://www.estafet.com/enterprise/objects/address/v1" 
+			elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	
+	<!-- ====================================================================== -->
+    <!-- ==============  Imports and Includes   =============================== -->
+    <!-- ====================================================================== -->
+    <xsd:import namespace="http://www.estafet.com/enterprise/objects/address/v1" schemaLocation="../../../objects/address/v1/AddressEBO.xsd"/>
+	
+	<!-- ====================================================================== -->
+    <!-- ================== Format Address ==================================== -->
+    <!-- ====================================================================== -->
+	<xsd:complexType name="FormatAddressEBMType">
+    	<xsd:sequence>
+        	<xsd:element name="DataArea" type="FormatAddressDataAreaType"/>
+    	</xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="FormatAddressEBM" type="FormatAddressEBMType"/>
+     <xsd:complexType name="FormatAddressDataAreaType">
+        <xsd:sequence>
+            <xsd:element ref="FormatAddress"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="FormatAddressType">
+    	<xsd:sequence>
+        	<xsd:element name="User" type="ebo:UserType"/>
+            <xsd:element minOccurs="0" maxOccurs="1" name="Options" type="ebo:COptimaOptionSet"/>
+            <xsd:element minOccurs="1" maxOccurs="1" name="AddressPostal" type="ebo:AddressPostalType"/>
+    	</xsd:sequence>
+    </xsd:complexType>
+	<xsd:element name="FormatAddress" type="FormatAddressType"/>
+		
+	<!-- ======================================================================= -->
+    <!-- ================= Format Address Response ============================= -->
+    <!-- ======================================================================= -->
+	<xsd:complexType name="FormatAddressResponseEBMType">
+    	<xsd:sequence>
+        	<xsd:element name="DataArea" type="FormatAddressResponseDataAreaType"/>
+    	</xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="FormatAddressResponseEBM" type="FormatAddressResponseEBMType"/>
+     <xsd:complexType name="FormatAddressResponseDataAreaType">
+        <xsd:sequence>
+            <xsd:element ref="FormatAddressResponse"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="FormatAddressResponseType">
+   		<xsd:sequence>
+        	<xsd:element name="Result" type="xsd:boolean"/>
+        	<xsd:element name="AddressPostal" type="ebo:AddressPostalType"/>
+    	</xsd:sequence>
+    </xsd:complexType>
+	<xsd:element name="FormatAddressResponse" type="FormatAddressResponseType"/>	
+	
+	<!-- ====================================================================== -->
+    <!-- ================== Search Address ==================================== -->
+    <!-- ====================================================================== -->
+	<xsd:complexType name="SearchAddressEBMType">
+    	<xsd:sequence>
+        	<xsd:element name="DataArea" type="SearchAddressDataAreaType"/>
+    	</xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="SearchAddressEBM" type="SearchAddressEBMType"/>
+     <xsd:complexType name="SearchAddressDataAreaType">
+        <xsd:sequence>
+            <xsd:element ref="SearchAddress"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="MaxResultsType">
+      	<xsd:simpleContent>
+      		<xsd:extension base="xsd:int">
+      			<xsd:attribute name="verbose" type="xsd:int" default="0">
+      			</xsd:attribute>
+      		</xsd:extension>
+      	</xsd:simpleContent>
+    </xsd:complexType>
+    <xsd:complexType name="SearchAddressType">
+    	<xsd:sequence>
+        	<xsd:element name="User" type="ebo:UserType"/>
+      		<xsd:element minOccurs="0" maxOccurs="1" name="Key" type="ebo:KeyType"/>
+			<xsd:element minOccurs="1" maxOccurs="1" name="AddressPostal" type="ebo:AddressPostalType"/>
+      		<xsd:element minOccurs="0" maxOccurs="1" name="MaxResults" type="MaxResultsType"/>
+      		<xsd:element minOccurs="0" maxOccurs="1" name="Options" type="ebo:COptimaOptionSet"/>
+    	</xsd:sequence>
+    </xsd:complexType>
+	<xsd:element name="SearchAddress" type="SearchAddressType"/>
+		
+	<!-- ====================================================================== -->
+    <!-- ================== Search Address Response =========================== -->
+    <!-- ====================================================================== -->
+	<xsd:complexType name="SearchAddressResponseEBMType">
+    	<xsd:sequence>
+        	<xsd:element name="DataArea" type="SearchAddressResponseDataAreaType"/>
+    	</xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="SearchAddressResponseEBM" type="SearchAddressResponseEBMType"/>
+     <xsd:complexType name="SearchAddressResponseDataAreaType">
+        <xsd:sequence>
+            <xsd:element ref="SearchAddressResponse"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="SearchAddressResponseType">
+    	<xsd:sequence>
+        	<xsd:element minOccurs="0" maxOccurs="unbounded" name="AddressPostal" type="ebo:AddressPostalType"/>
+    	</xsd:sequence>
+    </xsd:complexType>
+	<xsd:element name="SearchAddressResponse" type="SearchAddressResponseType"/>
+	
+	<!-- ====================================================================== -->
+    <!-- ================== Process Address =================================== -->
+    <!-- ====================================================================== -->
+	<xsd:complexType name="ProcessAddressEBMType">
+    	<xsd:sequence>
+        	<xsd:element name="DataArea" type="ProcessAddressDataAreaType"/>
+    	</xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ProcessAddressEBM" type="ProcessAddressEBMType"/>
+     <xsd:complexType name="ProcessAddressDataAreaType">
+        <xsd:sequence>
+            <xsd:element ref="ProcessAddress"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="ProcessAddressType">
+    	<xsd:sequence>
+        	<xsd:element name="User" type="ebo:UserType"/>
+      		<xsd:element minOccurs="0" maxOccurs="1" name="Key" type="ebo:KeyType"/>
+      		<xsd:element minOccurs="0" maxOccurs="1" name="EnhancementDatasetName" type="xsd:string"/>
+       		<xsd:element minOccurs="0" maxOccurs="1" name="Options" type="ebo:COptimaOptionSet"/>
+			<xsd:element minOccurs="1" maxOccurs="1" name="AddressPostal" type="ebo:AddressPostalType"/>
+    	</xsd:sequence>
+    </xsd:complexType>
+	<xsd:element name="ProcessAddress" type="ProcessAddressType"/>
+		
+	<!-- ====================================================================== -->
+    <!-- ================== Process Address Response ========================== -->
+    <!-- ====================================================================== -->
+	<xsd:complexType name="ProcessAddressResponseEBMType">
+    	<xsd:sequence>
+        	<xsd:element name="DataArea" type="ProcessAddressResponseDataAreaType"/>
+    	</xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ProcessAddressResponseEBM" type="ProcessAddressResponseEBMType"/>
+     <xsd:complexType name="ProcessAddressResponseDataAreaType">
+        <xsd:sequence>
+            <xsd:element ref="ProcessAddressResponse"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="ProcessAddressResponseType">
+    	<xsd:sequence>
+        	<xsd:element name="Result" type="xsd:boolean"/>
+            <xsd:element minOccurs="0" maxOccurs="1" name="AddressPostal" type="ebo:AddressPostalType"/>
+    	</xsd:sequence>
+    </xsd:complexType>
+	<xsd:element name="ProcessAddressResponse" type="ProcessAddressResponseType"/>      		
+
+	<!-- ====================================================================== -->
+    <!-- ================== Process Addresses ================================= -->
+    <!-- ====================================================================== -->
+	<xsd:complexType name="ProcessAddressesEBMType">
+    	<xsd:sequence>
+        	<xsd:element name="DataArea" type="ProcessAddressesDataAreaType"/>
+    	</xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ProcessAddressesEBM" type="ProcessAddressesEBMType"/>
+     <xsd:complexType name="ProcessAddressesDataAreaType">
+        <xsd:sequence>
+            <xsd:element ref="ProcessAddresses"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="ProcessAddressesType">
+    	<xsd:sequence>
+        	<xsd:element name="User" type="ebo:UserType"/>
+      		<xsd:element minOccurs="0" maxOccurs="1" name="EnhancementDatasetName" type="xsd:string"/>
+      		<xsd:element minOccurs="0" maxOccurs="1" name="Options" type="ebo:COptimaOptionSet"/>
+			<xsd:element minOccurs="1" maxOccurs="unbounded" name="AddressPostal" type="ebo:AddressPostalType"/>
+    	</xsd:sequence>
+    </xsd:complexType>
+	<xsd:element name="ProcessAddresses" type="ProcessAddressesType"/>
+		
+	<!-- ====================================================================== -->
+    <!-- ================== Process Addresses Response ======================== -->
+    <!-- ====================================================================== -->
+	<xsd:complexType name="ProcessAddressesResponseEBMType">
+    	<xsd:sequence>
+        	<xsd:element name="DataArea" type="ProcessAddressesResponseDataAreaType"/>
+    	</xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ProcessAddressesResponseEBM" type="ProcessAddressesResponseEBMType"/>
+     <xsd:complexType name="ProcessAddressesResponseDataAreaType">
+        <xsd:sequence>
+            <xsd:element ref="ProcessAddressesResponse"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="ProcessAddressesResponseType">
+    	<xsd:sequence>
+        	<xsd:element name="Result" type="xsd:boolean"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="AddressPostal" type="ebo:AddressPostalType"/>
+    	</xsd:sequence>
+    </xsd:complexType>
+	<xsd:element name="ProcessAddressesResponse" type="ProcessAddressesResponseType"/>      		
+</xsd:schema>

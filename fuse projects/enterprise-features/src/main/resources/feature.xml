@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<features name="enterprise-features-repository-1.0.0" xmlns="http://karaf.apache.org/xmlns/features/v1.0.0">
+    <feature name='enterprise-feature' description='estafet Fuse Reference Enterprise Features'>
+        <!-- <config>foo=bar</config> -->
+        <feature>camel-blueprint</feature>
+        <feature>camel-cxf</feature>
+        <feature>camel-jasypt</feature>
+        <feature>jasypt-encryption</feature>
+        <feature>cxf</feature>
+        
+        <bundle start-level="110">mvn:com.estafet.fuse.reference/enterprise-schemas/1.0.1-SNAPSHOT</bundle>
+        <bundle start-level="120">mvn:com.estafet.fuse.reference/enterprise-address-service/1.0.1-SNAPSHOT</bundle>
+    </feature>
+</features>

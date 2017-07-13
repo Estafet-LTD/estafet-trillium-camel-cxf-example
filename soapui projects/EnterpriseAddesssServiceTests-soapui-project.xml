@@ -1,0 +1,745 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="f1f56b89-ec7c-4d2a-8db5-b90a1632c6ee" activeEnvironment="Default" name="EnterpriseAddesssServiceTests" soapui-version="5.2.1" abortOnError="false" runType="SEQUENTIAL" resourceRoot="" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="c9d21f13-de3a-4fdc-92a6-b73e4d9a7dd9" wsaVersion="NONE" name="AddressEBSSOAP" type="wsdl" bindingName="{http://www.estafet.com/enterprise/services/address/v1}AddressEBSSOAP" soapVersion="1_1" anonymous="optional" definition="http://localhost:9200/cxf/postaladdressvalidator?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:9200/cxf/postaladdressvalidator?wsdl"><con:part><con:url>http://localhost:9200/cxf/postaladdressvalidator?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="AddressEBS" targetNamespace="http://www.estafet.com/enterprise/services/address/v1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ebs="http://www.estafet.com/enterprise/services/address/v1" xmlns:ebm="http://www.estafet.com/enterprise/messages/address/v1">
+  <wsdl:documentation>Address Enterprise Business Service</wsdl:documentation>
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.estafet.com/enterprise/services/address/v1">
+      <xsd:import namespace="http://www.estafet.com/enterprise/messages/address/v1" schemaLocation="http://localhost:9200/cxf/postaladdressvalidator?xsd=../../../messages/address/v1/AddressEBM.xsd"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="FormatAddressRespMsg">
+    <wsdl:part element="ebm:FormatAddressResponseEBM" name="FormatAddressResponseEBM"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ProcessAddressReqMsg">
+    <wsdl:part element="ebm:ProcessAddressEBM" name="ProcessAddressEBM"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ProcessAddressRespMsg">
+    <wsdl:part element="ebm:ProcessAddressResponseEBM" name="ProcessAddressResponseEBM"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="FormatAddressReqMsg">
+    <wsdl:part element="ebm:FormatAddressEBM" name="FormatAddressEBM"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="SearchAddressRespMsg">
+    <wsdl:part element="ebm:SearchAddressResponseEBM" name="SearchAddressResponseEBM"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ProcessAddressesRespMsg">
+    <wsdl:part element="ebm:ProcessAddressesResponseEBM" name="ProcessAddressesResponseEBM"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="SearchAddressReqMsg">
+    <wsdl:part element="ebm:SearchAddressEBM" name="SearchAddressEBM"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ProcessAddressesReqMsg">
+    <wsdl:part element="ebm:ProcessAddressesEBM" name="ProcessAddressesEBM"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="AddressEBS">
+    <wsdl:operation name="FormatAddress">
+      <wsdl:input message="ebs:FormatAddressReqMsg"></wsdl:input>
+      <wsdl:output message="ebs:FormatAddressRespMsg"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchAddress">
+      <wsdl:input message="ebs:SearchAddressReqMsg"></wsdl:input>
+      <wsdl:output message="ebs:SearchAddressRespMsg"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessAddress">
+      <wsdl:input message="ebs:ProcessAddressReqMsg"></wsdl:input>
+      <wsdl:output message="ebs:ProcessAddressRespMsg"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessAddresses">
+      <wsdl:input message="ebs:ProcessAddressesReqMsg"></wsdl:input>
+      <wsdl:output message="ebs:ProcessAddressesRespMsg"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AddressEBSSOAP" type="ebs:AddressEBS">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="FormatAddress">
+      <soap:operation soapAction="http://www.estafet.com/enterprise/services/address/v1/FormatAddress"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchAddress">
+      <soap:operation soapAction="http://www.estafet.com/enterprise/services/address/v1/SearchAddress"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessAddress">
+      <soap:operation soapAction="http://www.estafet.com/enterprise/services/address/v1/ProcessAddress"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessAddresses">
+      <soap:operation soapAction="http://www.estafet.com/enterprise/services/address/v1/ProcessAddresses"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AddressEBS">
+    <wsdl:port binding="ebs:AddressEBSSOAP" name="AddressEBSSOAP">
+      <soap:address location="http://localhost:9200/cxf/postaladdressvalidator"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://localhost:9200/cxf/postaladdressvalidator?xsd=../../../messages/address/v1/AddressEBM.xsd</con:url><con:content><![CDATA[<!--** estafet  **
+** Canonical Model **
+** Version 1.0 **
+** Author James Glass	
+** Date: 20 May 2015  **-->
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.estafet.com/enterprise/messages/address/v1" version="1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ebo="http://www.estafet.com/enterprise/objects/address/v1" xmlns="http://www.estafet.com/enterprise/messages/address/v1">
+  <!--======================================================================-->
+  <!--==============  Imports and Includes   ===============================-->
+  <!--======================================================================-->
+  <xsd:import namespace="http://www.estafet.com/enterprise/objects/address/v1" schemaLocation="http://localhost:9200/cxf/postaladdressvalidator?xsd=../../../objects/address/v1/AddressEBO.xsd"/>
+  <!--======================================================================-->
+  <!--================== Format Address ====================================-->
+  <!--======================================================================-->
+  <xsd:complexType name="FormatAddressEBMType">
+    <xsd:sequence>
+      <xsd:element name="DataArea" type="FormatAddressDataAreaType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="FormatAddressEBM" type="FormatAddressEBMType"/>
+  <xsd:complexType name="FormatAddressDataAreaType">
+    <xsd:sequence>
+      <xsd:element ref="FormatAddress"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="FormatAddressType">
+    <xsd:sequence>
+      <xsd:element name="User" type="ebo:UserType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="Options" type="ebo:COptimaOptionSet"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="AddressPostal" type="ebo:AddressPostalType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="FormatAddress" type="FormatAddressType"/>
+  <!--=======================================================================-->
+  <!--================= Format Address Response =============================-->
+  <!--=======================================================================-->
+  <xsd:complexType name="FormatAddressResponseEBMType">
+    <xsd:sequence>
+      <xsd:element name="DataArea" type="FormatAddressResponseDataAreaType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="FormatAddressResponseEBM" type="FormatAddressResponseEBMType"/>
+  <xsd:complexType name="FormatAddressResponseDataAreaType">
+    <xsd:sequence>
+      <xsd:element ref="FormatAddressResponse"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="FormatAddressResponseType">
+    <xsd:sequence>
+      <xsd:element name="Result" type="xsd:boolean"/>
+      <xsd:element name="AddressPostal" type="ebo:AddressPostalType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="FormatAddressResponse" type="FormatAddressResponseType"/>
+  <!--======================================================================-->
+  <!--================== Search Address ====================================-->
+  <!--======================================================================-->
+  <xsd:complexType name="SearchAddressEBMType">
+    <xsd:sequence>
+      <xsd:element name="DataArea" type="SearchAddressDataAreaType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="SearchAddressEBM" type="SearchAddressEBMType"/>
+  <xsd:complexType name="SearchAddressDataAreaType">
+    <xsd:sequence>
+      <xsd:element ref="SearchAddress"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="MaxResultsType">
+    <xsd:simpleContent>
+      <xsd:extension base="xsd:int">
+        <xsd:attribute default="0" name="verbose" type="xsd:int"></xsd:attribute>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name="SearchAddressType">
+    <xsd:sequence>
+      <xsd:element name="User" type="ebo:UserType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="Key" type="ebo:KeyType"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="AddressPostal" type="ebo:AddressPostalType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="MaxResults" type="MaxResultsType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="Options" type="ebo:COptimaOptionSet"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="SearchAddress" type="SearchAddressType"/>
+  <!--======================================================================-->
+  <!--================== Search Address Response ===========================-->
+  <!--======================================================================-->
+  <xsd:complexType name="SearchAddressResponseEBMType">
+    <xsd:sequence>
+      <xsd:element name="DataArea" type="SearchAddressResponseDataAreaType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="SearchAddressResponseEBM" type="SearchAddressResponseEBMType"/>
+  <xsd:complexType name="SearchAddressResponseDataAreaType">
+    <xsd:sequence>
+      <xsd:element ref="SearchAddressResponse"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="SearchAddressResponseType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="AddressPostal" type="ebo:AddressPostalType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="SearchAddressResponse" type="SearchAddressResponseType"/>
+  <!--======================================================================-->
+  <!--================== Process Address ===================================-->
+  <!--======================================================================-->
+  <xsd:complexType name="ProcessAddressEBMType">
+    <xsd:sequence>
+      <xsd:element name="DataArea" type="ProcessAddressDataAreaType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="ProcessAddressEBM" type="ProcessAddressEBMType"/>
+  <xsd:complexType name="ProcessAddressDataAreaType">
+    <xsd:sequence>
+      <xsd:element ref="ProcessAddress"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ProcessAddressType">
+    <xsd:sequence>
+      <xsd:element name="User" type="ebo:UserType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="Key" type="ebo:KeyType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="EnhancementDatasetName" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="Options" type="ebo:COptimaOptionSet"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="AddressPostal" type="ebo:AddressPostalType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="ProcessAddress" type="ProcessAddressType"/>
+  <!--======================================================================-->
+  <!--================== Process Address Response ==========================-->
+  <!--======================================================================-->
+  <xsd:complexType name="ProcessAddressResponseEBMType">
+    <xsd:sequence>
+      <xsd:element name="DataArea" type="ProcessAddressResponseDataAreaType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="ProcessAddressResponseEBM" type="ProcessAddressResponseEBMType"/>
+  <xsd:complexType name="ProcessAddressResponseDataAreaType">
+    <xsd:sequence>
+      <xsd:element ref="ProcessAddressResponse"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ProcessAddressResponseType">
+    <xsd:sequence>
+      <xsd:element name="Result" type="xsd:boolean"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="AddressPostal" type="ebo:AddressPostalType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="ProcessAddressResponse" type="ProcessAddressResponseType"/>
+  <!--======================================================================-->
+  <!--================== Process Addresses =================================-->
+  <!--======================================================================-->
+  <xsd:complexType name="ProcessAddressesEBMType">
+    <xsd:sequence>
+      <xsd:element name="DataArea" type="ProcessAddressesDataAreaType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="ProcessAddressesEBM" type="ProcessAddressesEBMType"/>
+  <xsd:complexType name="ProcessAddressesDataAreaType">
+    <xsd:sequence>
+      <xsd:element ref="ProcessAddresses"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ProcessAddressesType">
+    <xsd:sequence>
+      <xsd:element name="User" type="ebo:UserType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="EnhancementDatasetName" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="Options" type="ebo:COptimaOptionSet"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="1" name="AddressPostal" type="ebo:AddressPostalType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="ProcessAddresses" type="ProcessAddressesType"/>
+  <!--======================================================================-->
+  <!--================== Process Addresses Response ========================-->
+  <!--======================================================================-->
+  <xsd:complexType name="ProcessAddressesResponseEBMType">
+    <xsd:sequence>
+      <xsd:element name="DataArea" type="ProcessAddressesResponseDataAreaType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="ProcessAddressesResponseEBM" type="ProcessAddressesResponseEBMType"/>
+  <xsd:complexType name="ProcessAddressesResponseDataAreaType">
+    <xsd:sequence>
+      <xsd:element ref="ProcessAddressesResponse"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ProcessAddressesResponseType">
+    <xsd:sequence>
+      <xsd:element name="Result" type="xsd:boolean"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="AddressPostal" type="ebo:AddressPostalType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="ProcessAddressesResponse" type="ProcessAddressesResponseType"/>
+</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://localhost:9200/cxf/postaladdressvalidator?xsd=../../../objects/address/v1/AddressEBO.xsd</con:url><con:content><![CDATA[<!--** estafet  **
+** Canonical Model **
+** Version 1.0 **
+** Author James Glass	
+** Date: 20 May 2015  **-->
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.estafet.com/enterprise/objects/address/v1" version="1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.estafet.com/enterprise/objects/address/v1">
+  <xsd:element name="Address" type="AddressType">
+    <xsd:annotation>
+      <xsd:documentation>Main postal and electronic Address info</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="AddressType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="0" name="AddressPostal" type="AddressPostalType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="AddressElectronic" type="AddressElectronicType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="AddressPostalType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="0" name="AddressLine1" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="AddressLine2" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="AddressLine3" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="AddressLine4" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="AddressLine5" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="AddressLine6" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="AddressLine7" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="AddressLine8" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="Company" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="Building" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="SubBuilding" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="Department" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="Premise" type="ComponentType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="Street" type="ComponentType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="SubStreet" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="POBox" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="City" type="ComponentType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="SubCity" type="ComponentType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="Principality" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="Region" type="ComponentType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="Postcode" type="ComponentType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="DPS" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="Cedex" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="Country" type="ComponentType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="CountryISO" type="CountryISOType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="Latitude" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="Longitude" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="ProviderName" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="ProviderType" type="xsd:string"/>
+      <xsd:group ref="QualityGroup"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ComponentType">
+    <xsd:simpleContent>
+      <xsd:extension base="xsd:string">
+        <xsd:attribute name="status" type="xsd:string"/>
+        <xsd:attribute name="level" type="xsd:string"/>
+        <xsd:attribute name="desc" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name="CountryISOType">
+    <xsd:simpleContent>
+      <xsd:extension base="xsd:string">
+        <xsd:attribute name="iso3" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:group name="QualityGroup">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="0" name="Quality" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="Match" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="SupplierQuality" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:group>
+  <xsd:complexType name="AddressElectronicType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="0" name="Value" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="Type" type="StyleType"/>
+      <xsd:group ref="QualityGroup"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="StyleType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="email"/>
+      <xsd:enumeration value="url"/>
+      <xsd:enumeration value="ip"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="KeyType">
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="UserType">
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="3"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="COptimaOptionSet">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="0" name="OptionsMain" type="ArrayOfCOptimaOption"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="OptionsMask" type="ArrayOfCOptimaOptionMasks"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="OptionsOther" type="ArrayOfCOptimaOptionOther"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ArrayOfCOptimaOption">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="COptimaOption" nillable="true" type="COptimaOption"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="COptimaOption">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="1" name="OptionName" type="OON"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="OptionValue" type="xsd:int"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="OON">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="SalutationLanguage"/>
+      <xsd:enumeration value="CountryLanguage"/>
+      <xsd:enumeration value="OverrideSalutationLanguage"/>
+      <xsd:enumeration value="NameCasing"/>
+      <xsd:enumeration value="AddressCasing"/>
+      <xsd:enumeration value="TelephoneCasing"/>
+      <xsd:enumeration value="NameWordCheck"/>
+      <xsd:enumeration value="AddressWordCheck"/>
+      <xsd:enumeration value="TelephoneWordCheck"/>
+      <xsd:enumeration value="ForceUpdate1"/>
+      <xsd:enumeration value="ForceUpdate2"/>
+      <xsd:enumeration value="ForceUpdate3"/>
+      <xsd:enumeration value="Deprecated1"/>
+      <xsd:enumeration value="NameFlagBadWord"/>
+      <xsd:enumeration value="AddressFlagBadWord"/>
+      <xsd:enumeration value="TelephoneFlagBadWord"/>
+      <xsd:enumeration value="Deprecated2"/>
+      <xsd:enumeration value="CautiousUpdate"/>
+      <xsd:enumeration value="EnforceBlanks"/>
+      <xsd:enumeration value="DedupeCommonErrors"/>
+      <xsd:enumeration value="FormatComponents1"/>
+      <xsd:enumeration value="FormatComponents2"/>
+      <xsd:enumeration value="FormatComponents3"/>
+      <xsd:enumeration value="StandardiseComponents1"/>
+      <xsd:enumeration value="StandardiseComponents2"/>
+      <xsd:enumeration value="StandardiseComponents3"/>
+      <xsd:enumeration value="ValidateComponents1"/>
+      <xsd:enumeration value="ValidateComponents2"/>
+      <xsd:enumeration value="ValidateComponents3"/>
+      <xsd:enumeration value="CompanyWeight"/>
+      <xsd:enumeration value="StreetWeight"/>
+      <xsd:enumeration value="CityWeight"/>
+      <xsd:enumeration value="PostcodeWeight"/>
+      <xsd:enumeration value="ShuffleLines"/>
+      <xsd:enumeration value="ConcatenationLines"/>
+      <xsd:enumeration value="OuterMatchscoreLines"/>
+      <xsd:enumeration value="CarryStandardisationChanges"/>
+      <xsd:enumeration value="ApplyReferenceAccents"/>
+      <xsd:enumeration value="ReturnUserData"/>
+      <xsd:enumeration value="SearchTimeout"/>
+      <xsd:enumeration value="ReplaceAlias1"/>
+      <xsd:enumeration value="ReplaceAlias2"/>
+      <xsd:enumeration value="ReplaceAlias3"/>
+      <xsd:enumeration value="ValidatedDataOnly"/>
+      <xsd:enumeration value="StandardisationDebugOutput"/>
+      <xsd:enumeration value="FormatSearchResults"/>
+      <xsd:enumeration value="CompareField1"/>
+      <xsd:enumeration value="CompareField2"/>
+      <xsd:enumeration value="CompareField3"/>
+      <xsd:enumeration value="AlwaysShow1"/>
+      <xsd:enumeration value="AlwaysShow2"/>
+      <xsd:enumeration value="AlwaysShow3"/>
+      <xsd:enumeration value="StandardiseComponents"/>
+      <xsd:enumeration value="RemoveNumerics"/>
+      <xsd:enumeration value="GeocodeSearchResults"/>
+      <xsd:enumeration value="Transliteration"/>
+      <xsd:enumeration value="StrictSelect"/>
+      <xsd:enumeration value="PhoneticAliasMatch"/>
+      <xsd:enumeration value="IgnoreEOLs"/>
+      <xsd:enumeration value="ReturnPremiseRanges"/>
+      <xsd:enumeration value="ConcatenateValidationRules"/>
+      <xsd:enumeration value="AddressValidationRuleOFT"/>
+      <xsd:enumeration value="EnhanceValidationRuleOFT"/>
+      <xsd:enumeration value="ExhaustiveValidation"/>
+      <xsd:enumeration value="ExhaustiveEnhancement"/>
+      <xsd:enumeration value="ExhaustiveSearchAddress"/>
+      <xsd:enumeration value="BusinessFlagSearchResults"/>
+      <xsd:enumeration value="EnhancedDataOnly"/>
+      <xsd:enumeration value="NumOptionsPlusOne"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="ArrayOfCOptimaOptionMasks">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="COptimaOptionMasks" nillable="true" type="COptimaOptionMasks"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="COptimaOptionMasks">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="1" name="OptionName" type="OON"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="FieldName" type="OFT"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="OptionValue" type="xsd:boolean"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="OFT">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="RecordID"/>
+      <xsd:enumeration value="Title"/>
+      <xsd:enumeration value="FirstName"/>
+      <xsd:enumeration value="MiddleInitials"/>
+      <xsd:enumeration value="LastName"/>
+      <xsd:enumeration value="FullName"/>
+      <xsd:enumeration value="NameSuffix"/>
+      <xsd:enumeration value="Gender"/>
+      <xsd:enumeration value="JobTitle"/>
+      <xsd:enumeration value="Salutation"/>
+      <xsd:enumeration value="Department"/>
+      <xsd:enumeration value="Company"/>
+      <xsd:enumeration value="Building"/>
+      <xsd:enumeration value="SubBuilding"/>
+      <xsd:enumeration value="Premise"/>
+      <xsd:enumeration value="Street"/>
+      <xsd:enumeration value="SubStreet"/>
+      <xsd:enumeration value="POBox"/>
+      <xsd:enumeration value="SubCity"/>
+      <xsd:enumeration value="City"/>
+      <xsd:enumeration value="Region"/>
+      <xsd:enumeration value="Principality"/>
+      <xsd:enumeration value="Postcode"/>
+      <xsd:enumeration value="Country"/>
+      <xsd:enumeration value="DPS"/>
+      <xsd:enumeration value="Cedex"/>
+      <xsd:enumeration value="MKN"/>
+      <xsd:enumeration value="MKA"/>
+      <xsd:enumeration value="MKC"/>
+      <xsd:enumeration value="ACR"/>
+      <xsd:enumeration value="WCR"/>
+      <xsd:enumeration value="NCR"/>
+      <xsd:enumeration value="TCR"/>
+      <xsd:enumeration value="ECR"/>
+      <xsd:enumeration value="Percent"/>
+      <xsd:enumeration value="Duplicate"/>
+      <xsd:enumeration value="DUPmaster"/>
+      <xsd:enumeration value="DUPconfidence"/>
+      <xsd:enumeration value="Other1"/>
+      <xsd:enumeration value="Other2"/>
+      <xsd:enumeration value="Other3"/>
+      <xsd:enumeration value="Other4"/>
+      <xsd:enumeration value="Other5"/>
+      <xsd:enumeration value="Other6"/>
+      <xsd:enumeration value="Other7"/>
+      <xsd:enumeration value="Other8"/>
+      <xsd:enumeration value="Other9"/>
+      <xsd:enumeration value="Other10"/>
+      <xsd:enumeration value="AddressLine1"/>
+      <xsd:enumeration value="AddressLine2"/>
+      <xsd:enumeration value="AddressLine3"/>
+      <xsd:enumeration value="AddressLine4"/>
+      <xsd:enumeration value="AddressLine5"/>
+      <xsd:enumeration value="AddressLine6"/>
+      <xsd:enumeration value="AddressLine7"/>
+      <xsd:enumeration value="AddressLine8"/>
+      <xsd:enumeration value="CountryISO"/>
+      <xsd:enumeration value="MobileTelephone"/>
+      <xsd:enumeration value="Telephone1"/>
+      <xsd:enumeration value="Telephone2"/>
+      <xsd:enumeration value="Telephone3"/>
+      <xsd:enumeration value="Telephone4"/>
+      <xsd:enumeration value="Email1"/>
+      <xsd:enumeration value="Email2"/>
+      <xsd:enumeration value="URL1"/>
+      <xsd:enumeration value="URL2"/>
+      <xsd:enumeration value="NumFieldsPlusOne"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="ArrayOfCOptimaOptionOther">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="COptimaOptionOther" nillable="true" type="COptimaOptionOther"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="COptimaOptionOther">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="1" name="OptionName" type="OtherOptions"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="OptionValue" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="OtherOptions">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="DefaultCountry"/>
+      <xsd:enumeration value="FormatSelectResults"/>
+      <xsd:enumeration value="GeocodeSelectResults"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="ExcludeType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="1" name="Exclude" nillable="true" type="OFT"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:9100/cxf/postaladdressvalidator</con:endpoint><con:endpoint>http://localhost:9200/cxf/postaladdressvalidator</con:endpoint><con:endpoint>http://oxldaps006v:9100/cxf/postaladdressvalidator</con:endpoint></con:endpoints><con:operation id="a2bc35e4-3dc7-4de5-990a-bbc9cf5cb0ba" isOneWay="false" action="http://www.estafet.com/enterprise/services/address/v1/FormatAddress" name="FormatAddress" bindingOperationName="FormatAddress" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="3fda4f57-57b3-47ec-a500-3873804eb4ee" name="FormatAddressRequest"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9200/cxf/postaladdressvalidator</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v1="http://www.estafet.com/enterprise/messages/address/v1" xmlns:v11="http://www.estafet.com/enterprise/objects/address/v1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <v1:FormatAddressEBM>
+         <v1:DataArea>
+            <v1:FormatAddress>
+               <v1:User>TestUser</v1:User>   
+               <v1:AddressPostal>                
+                    <v11:Premise>8</v11:Premise>
+                    <v11:Street>St James</v11:Street>
+                    <v11:City>London</v11:City>
+                    <v11:Postcode>SW1Y 4JU</v11:Postcode>
+                    <v11:CountryISO>GB</v11:CountryISO>     
+               </v1:AddressPostal>
+            </v1:FormatAddress>
+         </v1:DataArea>
+      </v1:FormatAddressEBM>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.elsevier.com/enterprise/services/address/v1/FormatAddress"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="0a4dfb5e-3fe3-4f24-a3a0-4f509708a9ca" isOneWay="false" action="http://www.estafet.com/enterprise/services/address/v1/ProcessAddress" name="ProcessAddress" bindingOperationName="ProcessAddress" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="4c15c8ff-c28a-424a-80b4-8f2fc6796e29" name="ProcessAddressRequest"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9200/cxf/postaladdressvalidator</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v1="http://www.estafet.com/enterprise/messages/address/v1" xmlns:v11="http://www.estafet.com/enterprise/objects/address/v1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <v1:ProcessAddressEBM>
+         <v1:DataArea>
+            <v1:ProcessAddress>
+               <v1:User>TestUser</v1:User>
+               <v1:AddressPostal>
+                    <v11:Premise>12</v11:Premise>
+                    <v11:Street>Somewhere Street</v11:Street>
+                    <v11:City>Oxford</v11:City>
+                    <v11:Postcode>OX1 1AA</v11:Postcode>
+                    <v11:CountryISO>GB</v11:CountryISO> 
+               </v1:AddressPostal>
+            </v1:ProcessAddress>
+         </v1:DataArea>
+      </v1:ProcessAddressEBM>
+   </soapenv:Body>
+</soapenv:Envelope>
+ 
+]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.elsevier.com/enterprise/services/address/v1/ProcessAddress"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="22d1a3af-7e80-40de-9256-1df73668a553" isOneWay="false" action="http://www.estafet.com/enterprise/services/address/v1/ProcessAddresses" name="ProcessAddresses" bindingOperationName="ProcessAddresses" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="86eb6a46-d3ba-4847-983d-b939838e2806" name="ProcessAddressesRequest"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9200/cxf/postaladdressvalidator</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v1="http://www.estafet.com/enterprise/messages/address/v1" xmlns:v11="http://www.estafet.com/enterprise/objects/address/v1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <v1:ProcessAddressesEBM>
+         <v1:DataArea>
+            <v1:ProcessAddresses>
+               <v1:User>TestUser</v1:User>
+               <v1:AddressPostal>
+                    <v11:Premise>12</v11:Premise>
+                    <v11:Street>Somewhere Street</v11:Street>
+                    <v11:Postcode>OX1 1AA</v11:Postcode>
+                    <v11:CountryISO>GB</v11:CountryISO> 
+               </v1:AddressPostal>
+              <v1:AddressPostal>
+                    <v11:Premise>14</v11:Premise>
+                    <v11:Street>Somewhere Street</v11:Street>
+                    <v11:Postcode>OX1 1AB</v11:Postcode>
+                    <v11:CountryISO>GBR</v11:CountryISO>
+               </v1:AddressPostal>
+            </v1:ProcessAddresses>
+         </v1:DataArea>
+      </v1:ProcessAddressesEBM>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.elsevier.com/enterprise/services/address/v1/ProcessAddresses"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="0c2cf585-a9b5-4503-aa04-68bfb7766689" isOneWay="false" action="http://www.estafet.com/enterprise/services/address/v1/SearchAddress" name="SearchAddress" bindingOperationName="SearchAddress" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="1a67a018-03a7-4748-b901-63b77419ec03" name="SearchAddressRequest"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9200/cxf/postaladdressvalidator</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v1="http://www.estafet.com/enterprise/messages/address/v1" xmlns:v11="http://www.estafet.com/enterprise/objects/address/v1">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <v1:SearchAddressEBM>\r
+         <v1:DataArea>\r
+            <v1:SearchAddress>\r
+               <v1:User>TestUser</v1:User>\r
+               <v1:AddressPostal>\r
+                  <v11:Premise>The Clubhouse</v11:Premise>     
+                  <v11:Postcode>SW1Y 4JU</v11:Postcode>
+                  <v11:CountryISO>GBR</v11:CountryISO>
+               </v1:AddressPostal>\r
+               <v1:MaxResults verbose="1">25</v1:MaxResults>\r                  
+            </v1:SearchAddress>\r
+         </v1:DataArea>\r
+      </v1:SearchAddressEBM>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.elsevier.com/enterprise/services/address/v1/SearchAddress"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="2882e73a-522c-4099-85c7-6f7a9b53f3a4" name="AddressEBSSOAP TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="0306d77f-146d-461d-9749-d3f022690f91" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="FormatAddress TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="60153b56-1dd3-4861-90b1-f669b4418c43" name="FormatAddress"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>AddressEBSSOAP</con:interface><con:operation>FormatAddress</con:operation><con:request name="FormatAddress" id="374ee19a-0171-4e58-9354-c0ebb820e80a"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9100/cxf/postaladdressvalidator</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v1="http://www.elsevier.com/enterprise/messages/address/v1" xmlns:v11="http://www.elsevier.com/enterprise/objects/address/v1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <v1:FormatAddressEBM>
+         <v1:DataArea>
+            <v1:FormatAddress>
+               <v1:User>ElsevierTest</v1:User>   
+               <v1:AddressPostal>                
+                    <v11:Premise>The Boulevard</v11:Premise>
+                    <v11:Street>Langford Lane</v11:Street>
+                    <v11:City>Oxford</v11:City>
+                    <v11:Postcode>OX5 1GB</v11:Postcode>
+                    <v11:CountryISO>GB</v11:CountryISO>     
+               </v1:AddressPostal>
+            </v1:FormatAddress>
+         </v1:DataArea>
+      </v1:FormatAddressEBM>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Fault Assertion" id="64038ca1-2f75-4db3-bd68-7820bf9195cc" name="Not SOAP Fault"/><con:assertion type="SOAP Response" id="4b653d24-dce8-4447-9dc8-9c196642ba3c" name="SOAP Response"/><con:assertion type="Simple Contains" id="e5e1b2aa-c6f4-4aff-8579-212a04dec0fd" name="Contains"><con:configuration><token>&lt;tns:Result>true&lt;/tns:Result>
+</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.elsevier.com/enterprise/services/address/v1/FormatAddress" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="27800f8c-f47f-48a0-8f96-32e510508821" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="ProcessAddress TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="8e70019e-32b5-4092-b4a5-ef72d96791df" name="ProcessAddress"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>AddressEBSSOAP</con:interface><con:operation>ProcessAddress</con:operation><con:request name="ProcessAddress" id="b2e3517e-0b77-4dd8-a4e3-9cae73698b6d"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9100/cxf/postaladdressvalidator</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v1="http://www.elsevier.com/enterprise/messages/address/v1" xmlns:v11="http://www.elsevier.com/enterprise/objects/address/v1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <v1:ProcessAddressEBM>
+         <v1:DataArea>
+            <v1:ProcessAddress>
+               <v1:User>ElsevierTest</v1:User>
+               <v1:AddressPostal>
+                    <v11:Premise>80</v11:Premise>
+                    <v11:Street>High Street</v11:Street>
+                    <v11:City>Cambridge</v11:City>
+                    <v11:Postcode>CB22 3HJ</v11:Postcode>
+                    <v11:CountryISO>GB</v11:CountryISO> 
+               </v1:AddressPostal>
+            </v1:ProcessAddress>
+         </v1:DataArea>
+      </v1:ProcessAddressEBM>
+   </soapenv:Body>
+</soapenv:Envelope>
+ 
+]]></con:request><con:assertion type="Simple Contains" id="53548efa-e755-4763-bfe7-17b63625f631" name="Contains"><con:configuration><token>&lt;tns:Result>true&lt;/tns:Result>
+</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="SOAP Fault Assertion" id="eecf0e44-b6e6-4ee2-b236-57a83a8148e8" name="Not SOAP Fault"/><con:assertion type="SOAP Response" id="d42a8381-a355-4403-8f7b-5f3103492def" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.elsevier.com/enterprise/services/address/v1/ProcessAddress" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="2e273d44-2f14-4153-b8d9-92d6385498e0" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="ProcessAddresses TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="88eb979e-e9e6-4268-bdb9-f5d8598e29d1" name="ProcessAddresses"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>AddressEBSSOAP</con:interface><con:operation>ProcessAddresses</con:operation><con:request name="ProcessAddresses" id="b5cac514-d52c-4950-8fb0-2829fb0303ef"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9100/cxf/postaladdressvalidator</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v1="http://www.elsevier.com/enterprise/messages/address/v1" xmlns:v11="http://www.elsevier.com/enterprise/objects/address/v1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <v1:ProcessAddressesEBM>
+         <v1:DataArea>
+            <v1:ProcessAddresses>
+               <v1:User>ElsevierTest</v1:User>
+               <v1:AddressPostal>
+                    <v11:Premise>80</v11:Premise>
+                    <v11:Street>High Street</v11:Street>
+                    <v11:City>Cambridge</v11:City>
+                    <v11:Postcode>CB22 3HJ</v11:Postcode>
+                    <v11:CountryISO>GB</v11:CountryISO> 
+               </v1:AddressPostal>
+              <v1:AddressPostal>
+                    <v11:Premise>The Boulevard</v11:Premise>
+                    <v11:Street>Langford Lane</v11:Street>
+                    <v11:Postcode>OX5 1GB</v11:Postcode>
+                    <v11:CountryISO>GBR</v11:CountryISO>
+               </v1:AddressPostal>
+            </v1:ProcessAddresses>
+         </v1:DataArea>
+      </v1:ProcessAddressesEBM>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="Simple Contains" id="38cbfb94-165d-491a-8682-12dc7b36742a" name="Contains"><con:configuration><token>&lt;tns:Result>true&lt;/tns:Result>
+</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="SOAP Fault Assertion" id="b046f466-2f3b-4530-aac1-8ac5424c6c2c" name="Not SOAP Fault"/><con:assertion type="SOAP Response" id="14520f79-7f14-437a-b997-0d3fe17653b7" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.elsevier.com/enterprise/services/address/v1/ProcessAddresses" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="65587110-a0be-4916-a49f-ecf2b92fb069" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="SearchAddress TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="b37b5d6d-d0e7-4a2a-b20b-c4635b5c83e9" name="SearchAddress"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>AddressEBSSOAP</con:interface><con:operation>SearchAddress</con:operation><con:request name="SearchAddress" id="6848ce4a-6aab-48e0-ab86-079adc62bf01"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9100/cxf/postaladdressvalidator</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v1="http://www.elsevier.com/enterprise/messages/address/v1" xmlns:v11="http://www.elsevier.com/enterprise/objects/address/v1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <v1:SearchAddressEBM>
+         <v1:DataArea>
+            <v1:SearchAddress>
+               <v1:User>ElsevierTest</v1:User>
+               <!--Optional:-->
+               <v1:Key>?</v1:Key>
+               <v1:AddressPostal>
+                  <v11:Premise>80</v11:Premise>     
+                  <v11:Postcode>CB223HJ</v11:Postcode>
+                  <v11:CountryISO>GBR</v11:CountryISO>
+               </v1:AddressPostal>
+               <v1:MaxResults verbose="1">25</v1:MaxResults>
+                  
+            </v1:SearchAddress>
+         </v1:DataArea>
+      </v1:SearchAddressEBM>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="Simple Contains" id="7424a187-f4c9-4e40-a2cd-1f71c6da6a46" name="Contains"><con:configuration><token>&lt;tns:Result>true&lt;/tns:Result>
+</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="SOAP Fault Assertion" id="df779396-ad8b-4845-b935-a69dbb196d56" name="Not SOAP Fault"/><con:assertion type="SOAP Response" id="65b1c9a3-cfae-4582-805f-a14e680ce836" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.elsevier.com/enterprise/services/address/v1/SearchAddress" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

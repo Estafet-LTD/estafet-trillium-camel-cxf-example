@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+    xmlns:camel="http://camel.apache.org/schema/blueprint"
+    xmlns:camelcxf="http://camel.apache.org/schema/blueprint/cxf"
+    xmlns:cxf="http://cxf.apache.org/blueprint/core"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="        http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd        http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd        http://cxf.apache.org/blueprint/core http://cxf.apache.org/schemas/blueprint/core.xsd">
+    <bean
+        class="org.apache.camel.component.jasypt.JasyptPropertiesParser" id="jasypt">
+        <!-- password is mandatory, you can prefix it with sysenv: or sys: to indicate 
+			it should use an OS environment or JVM system property value, so you dont 
+			have the master password defined here -->
+        <property name="algorithm" value="PBEWithMD5AndDES"/>
+        <property name="password" value="FUSE_ENCRYPTION_PASSWORD"/>
+    </bean>
+    <!-- Use a standard error handler. Set the level to WARN - we just want 
+		to log the error but not stop processing -->
+    <bean class="org.apache.camel.builder.LoggingErrorHandlerBuilder" id="loggingErrorHandler">
+        <property name="logName" value="PostalAddressValidator.logger"/>
+        <property name="level" value="WARN"/>
+    </bean>
+    <!-- The producer endpoint -->
+    <camelcxf:cxfEndpoint address="http://localhost:8080"
+        endpointName="ns:GlobalAddressSoap" id="TrilliumAddressWS"
+        wsdlURL="wsdl/globaladdress_2014.wsdl" xmlns:ns="http://webservices.globaladdress.net">
+        <!-- endpointName="ns:GlobalAddressSoap" serviceName="ns:GlobalAddress"> -->
+        <camelcxf:properties>
+            <entry key="dataFormat" value="MESSAGE"/>
+        </camelcxf:properties>
+    </camelcxf:cxfEndpoint>
+    <!-- The consumer endpoint -->
+    <camelcxf:cxfEndpoint
+        address="http://localhost:9200/cxf/postaladdressvalidator"
+        endpointName="ns:AddressEBSSOAP" id="PostalAddressConsumerWS"
+        serviceName="ns:AddressEBS"
+        wsdlURL="com/estafet/enterprise/services/address/v1/AddressEBS.wsdl" xmlns:ns="http://www.estafet.com/enterprise/services/address/v1">
+        <camelcxf:properties>
+            <entry key="dataFormat" value="MESSAGE"/>
+        </camelcxf:properties>
+    </camelcxf:cxfEndpoint>
+    <camelContext id="postalAddressBlueprintContext" trace="false"
+        xmlns="http://camel.apache.org/schema/blueprint" xmlns:elsadd="http://www.estafet.com/enterprise/messages/address/v1">
+        <propertyPlaceholder id="properties"
+            location="classpath:etc/service.properties" propertiesParserRef="jasypt"/>
+        <route errorHandlerRef="loggingErrorHandler"
+            id="postalAddressEBSRoute" streamCache="true">
+            <from id="_from1" uri="cxf:bean:PostalAddressConsumerWS"/>
+            <setProperty id="_setProperty1" propertyName="userName">
+                <constant>{{trillium-service-username}}</constant>
+            </setProperty>
+            <setProperty id="_setProperty2" propertyName="password">
+                <constant>{{trillium-service-password}}</constant>
+            </setProperty>
+            <choice id="_choice1">
+                <when id="_when1">
+                    <simple>${in.header.SOAPAction} == '"http://www.estafet.com/enterprise/services/address/v1/FormatAddress"'</simple>
+                    <!--  <removeHeader headerName="SOAPAction" id="_removeHeader1"/> -->
+                    <to id="_to1" uri="log:data from Client?showStreams=true"/>
+                    <to id="_to2" uri="xslt:xsl/TransformFormatAddressEBMToTrillium.xsl"/>
+                    <to id="_to3" uri="log:transformed data from Client?showStreams=true&amp;showHeaders=true"/>
+                    <removeHeader headerName="accept-encoding" id="_removeHeader5"/>
+                    <to id="_to4" uri="cxf:bean:TrilliumAddressWS"/>
+                    <to id="_to5" uri="log:response from Trillium?showStreams=true&amp;showHeaders=true"/>
+                    <to id="_to6" uri="xslt:xsl/TransformFormatAddressTrilliumToEBMISOCountry.xsl"/>
+                </when>
+                <when id="_when2">
+                    <simple>${in.header.SOAPAction} == '"http://www.estafet.com/enterprise/services/address/v1/ProcessAddress"'</simple>
+                    <to id="_to7" uri="log:data from Client?showStreams=true"/>
+                    <to id="_to8" uri="xslt:xsl/TransformProcessAddressEBMToTrillium.xsl"/>
+                    <to id="_to9" uri="log:transformed data from Client?showStreams=true"/>
+                    <removeHeader headerName="accept-encoding" id="_removeHeader6"/>
+                    <to id="_to10" uri="cxf:bean:TrilliumAddressWS"/>
+                    <to id="_to11" uri="log:response from Trillium?showStreams=true&amp;showHeaders=true"/>
+                    <to id="_to12" uri="xslt:xsl/TransformProcessAddressTrilliumToEBMISOCountry.xsl"/>
+                </when>
+                <when id="_when3">
+                    <simple>${in.header.SOAPAction} == '"http://www.estafet.com/enterprise/services/address/v1/ProcessAddresses"'</simple>
+                    <to id="_to13" uri="log:data from Client?showStreams=true"/>
+                    <to id="_to14" uri="xslt:xsl/TransformProcessMultiAddressEBMToTrillium.xsl"/>
+                    <to id="_to15" uri="log:transformed data from Client?showStreams=true"/>
+                    <removeHeader headerName="accept-encoding" id="_removeHeader7"/>
+                    <to id="_to16" uri="cxf:bean:TrilliumAddressWS"/>
+                    <to id="_to17" uri="log:response from Trillium?showStreams=true&amp;showHeaders=true"/>
+                    <to id="_to18" uri="xslt:xsl/TransformProcessMultiAddressTrilliumToEBMISOCountry.xsl"/>
+                </when>
+                <when id="_when4">
+                    <simple>${in.header.SOAPAction} == '"http://www.estafet.com/enterprise/services/address/v1/SearchAddress"'</simple>
+                    <to id="_to19" uri="log:data from Client?showStreams=true"/>
+                    <setHeader headerName="verbose" id="_setHeader1">
+                        <xpath resultType="java.lang.String">boolean(number(//elsadd:MaxResults/@verbose))</xpath>
+                    </setHeader>
+                    <to id="_to20" uri="xslt:xsl/TransformSearchAddressEBMToTrillium.xsl"/>
+                    <to id="_to21" uri="log:transformed data from Client?showStreams=true&amp;showHeaders=true"/>
+                    <removeHeader headerName="accept-encoding" id="_removeHeader1"/>
+                    <to id="_to22" uri="cxf:bean:TrilliumAddressWS"/>
+                    <to id="_to23" uri="log:response from Trillium?showStreams=true&amp;showHeaders=true"/>
+                    <to id="_to24" uri="xslt:xsl/TransformSearchAddressTrilliumToEBMISOCountry.xsl"/>
+                    <to id="_to27" uri="log:transformed response from Trillium?showStreams=true"/>
+                </when>
+                <otherwise id="_otherwise1">
+                    <to id="_to25" uri="log:Operation Invalid: data from Client?level=WARN&amp;showStreams=true&amp;showHeaders=true"/>
+                    <to id="_to26" uri="xslt:xsl/NoOperationResponse.xsl"/>
+                </otherwise>
+            </choice>
+        </route>
+    </camelContext>
+</blueprint>

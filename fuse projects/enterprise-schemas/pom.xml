@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	
+	<parent>
+    	<groupId>com.estafet.fuse.reference</groupId>
+    	<artifactId>enterprise-parent</artifactId>
+    	<version>1.0.1-SNAPSHOT</version>
+    	<relativePath>../enterprise-parent/pom.xml</relativePath>
+	</parent>
+
+	<artifactId>enterprise-schemas</artifactId>
+	<packaging>bundle</packaging>
+	<name>estafet Fuse Reference Enterprise Schemas</name>
+	
+	<build>
+		<plugins>
+
+			<!-- to generate the MANIFEST-FILE of the bundle -->
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<version>${felix.version}</version>
+				<extensions>true</extensions>
+				<configuration>
+					<instructions>
+						<Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
+						<Import-Package>*</Import-Package>
+						<Export-Package>com.estafet*;version=${project.version}</Export-Package>
+					</instructions>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+
+</project>

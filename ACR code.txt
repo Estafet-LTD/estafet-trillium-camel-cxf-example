@@ -1,0 +1,134 @@
+The ACR Code
+
+The Address Correction Result (ACR) code describes what data has been changed in each record. An example of an ACR is:
+
+L5-P0S0A5T1R0Z0C4-098
+
+ACR codes consist of three parts:
+
+    Validation Level
+    Component Status
+    Validation Match Score
+
+Validation Level
+
+The first two characters of the address correction result state the type and level of validation.
+
+The first character, which is always alphabetic, specifies the type of validation:
+
+    U—Unable to standardize address
+    C—Address is in component form
+    L—Address has been formatted into address lines
+    R—Address has been reverted and has not reached acceptable level
+
+The second character, which is always numeric, specifies the level of validation. The higher the level, the better the validation will be. The levels that can be achieved are as follows:
+
+    0—No components validated
+    1—Country only validated
+    2—City and country validated
+    3—City, postal code and country validated
+    4—Street, city, postal code and country validated
+    5—Premise number, building name, sub-building, PO box, company, street, city, postal code, and country validated.
+
+Component Status
+
+The second part of the ACR code gives the status of the main address components. The address components are identified as follows:
+
+    Character 3-4: P—Premise/house number
+    Character 5-6: S—Street
+    Character 7-8: A—Subcity (city area)
+    Character 9-10: T—City
+    Character 11-12: R—Region/state
+    Character 13-14: Z—Postal code/ZIP Code®
+    Character 15-16: C—Country
+
+A number follows each component and can take one of the following values:
+
+    0—Not found/empty
+    1—Derived using position in input data
+    2—Recognized using the Address Now Module database
+    3—Recognized and updated to standard form using the Address Now Module database
+    4—Validated using Address Now Module database
+    5—Updated/corrected using Address Now Module database
+    6—Added using Address Now Module database
+    7—Correctly empty
+    8—Partial recognition using Address Now Module database
+    9—Needs correcting to match Address Now Module database
+
+Validation Match Score
+
+The Validation Match Score comprises characters 17-19, the final three digits of the ACR code. This is a comparison between the standardized data (in component format) and the suggested match returned from the Address Now Module database.
+
+This score is calculated by examining all fields returned from the Address Now Module database and comparing them individually with the existing component data. The overall match score is then calculated by combining these individual values into an average score, taking into account the match score weightings, which can be set from the address validation options dialog box. For example,
+
+Input data:
+
+AddressLine1: 11 High Street
+City: Anytown
+Country: UK
+
+Standardized data:
+
+Premise: 11
+Street: High Street
+City: Anytown
+
+When validated, the data returned from the Address Now Module database for this record may be:
+
+Premise: 11
+Street: High Street
+City: Anytown
+Postal Code: ZZ9 9ZZ
+
+Comparing the Address Now Module database to the standardized data we get:
+
+    Premise: 100% match
+    Street: 100% match
+    City: 100% match
+    Postal Code: not used, because empty on input
+
+Combining these percentages gives us a match score of 100%.
+
+Another example may be:
+
+Input data:
+
+AddressLine1: bergerstrasse 12
+AddressLine2: munich
+AddressLine3: 80124
+Country: Germany
+
+Standardized data:
+
+Premise: 12
+Street: Bergerstr.
+City: München
+Postal Code: 80124
+
+Address Now Module database output:
+
+Premise: 12
+Street: Burgerstr.
+City: München
+Postal Code: 80142
+
+Comparing the Address Now Module database output to the standardized data we get:
+
+    Premise:100% match
+    Street: 90% match (the actual figure is determined by a textual comparison of the two values)
+    City: 100% match
+    Postal Code: 80% match (because the numbers are transposed)
+
+This gives an overall match score of 92% if the match score weightings are all set at 1. Increasing the match score weighting of the postal code will decrease the match score, because the postal code component score (80%) will be made more important in the calculation. Increasing the match score weighting of the city will increase the match score, because the city component score (100%) will be made more important.
+
+For example:
+
+L5-P4S4A5T5R4Z4C4-098
+
+    L shows that formatting has been carried out to create the address lines
+    The validation level is 5, meaning that the highest level of matching against the Address Now Module database was attained
+    All component codes except subcity (A) and city (T) are set to 4 indicating that they were validated using the Address Now Module database
+    The subcity code and city code are set to 5 indicating that these components were corrected using the Address Now Module database
+
+The overall address matched the Address Now Module database at 98%.
+Note: You may also receive a value of "SDS" for the Validation Match Score. A return of SDS indicates that the address has not been standardized, possibly as a result of the address being reverted.

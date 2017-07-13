@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.estafet.fuse.reference</groupId>
+	<artifactId>enterprise-parent</artifactId>
+	<packaging>pom</packaging>
+	<version>1.0.1-SNAPSHOT</version>
+
+	<name>estafet Fuse Reference Enterprise Parent</name>
+	<url>http://www.estafet.com</url>
+
+	
+   <properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<felix.version>3.2.0</felix.version>
+		<karaf.version>3.0.3</karaf.version>
+		<maven-compiler.version>3.5.1</maven-compiler.version>
+		<maven-compiler-jdk.version>1.8</maven-compiler-jdk.version>
+		<maven-resources.version>2.6</maven-resources.version>
+		<camel.version>2.17.0.redhat-630187</camel.version>
+		<cxf-transports.version>3.1.5.redhat-630262</cxf-transports.version>
+		<slf4j.version>1.7.12</slf4j.version>
+		<log4j.version>1.2.17</log4j.version>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>release.fusesource.org</id>
+			<name>FuseSource Release Repository</name>
+			<url>http://repo.fusesource.com/nexus/content/repositories/releases</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</repository>
+	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>release.fusesource.org</id>
+			<name>FuseSource Release Repository</name>
+			<url>http://repo.fusesource.com/nexus/content/repositories/releases</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<distributionManagement>
+		<repository>
+			<id>dinexus</id>
+			<url>http://oxlpaps011v:8081/nexus/content/repositories/fusereleases</url>
+			<uniqueVersion>false</uniqueVersion>
+		</repository>
+		<snapshotRepository>
+			<id>dinexus</id>
+			<url>http://oxlpaps011v:8081/nexus/content/repositories/fusesnapshots</url>
+			<uniqueVersion>false</uniqueVersion>
+		</snapshotRepository>
+	</distributionManagement>
+	<scm>
+		<connection>scm:git:ssh://gitolite3@git.cbsels.com:repo-msgint-fuseeva</connection>
+		<developerConnection>scm:git:ssh://gitolite3@git.cbsels.com:repo-msgint-fuseeva</developerConnection>
+		<tag>HEAD</tag>
+	</scm>
+
+	<modules>
+		<module>../enterprise-schemas</module>
+		<module>../enterprise-features</module>
+		<module>../enterprise-address-service</module>
+	</modules>
+
+	<build>
+		<defaultGoal>install</defaultGoal>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler.version}</version>
+				<configuration>
+					<source>${maven-compiler-jdk.version}</source>
+					<target>${maven-compiler-jdk.version}</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>${maven-resources.version}</version>
+				<configuration>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
